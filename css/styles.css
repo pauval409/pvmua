@@ -1,0 +1,231 @@
+
+* { 
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html { 
+
+} 
+
+body {
+    text-align: center;
+    font-family: proxima-nova, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 14px;
+    color: #666;
+    margin: 0;
+}
+
+header {
+    text-align: center;
+    margin-top: 24px;
+    margin-bottom: 24px;
+    padding: 0;
+}
+
+.main-images img {
+    width: 80%;
+}
+
+.main-contact {
+    margin-top: 64px;;
+}
+
+.main-contact p {
+    margin-top: 24px;;
+}
+
+h3 {
+    margin-bottom: 24px;
+}
+
+a, a:visited {
+    color: #000;
+    text-decoration: none;
+}
+
+.video {
+    aspect-ratio: 16 / 9;
+    width: 80%;
+}
+
+footer {
+    margin-top: 48px;
+    margin-bottom: 24px;
+}
+
+#menuToggle
+{
+  display: block;
+  position: relative;
+  top: 24px;
+  left: 24px;
+  
+  z-index: 1;
+  
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+#menuToggle a
+{
+  text-decoration: none;
+  color: #232323;
+  
+  transition: color 0.3s ease;
+}
+
+#menuToggle a:hover
+{
+  color: tomato;
+}
+
+
+#menuToggle input
+{
+  display: block;
+  width: 40px;
+  height: 32px;
+  position: absolute;
+  top: -7px;
+  left: -5px;
+  
+  cursor: pointer;
+  
+  opacity: 0; /* hide this */
+  z-index: 2; /* and place it over the hamburger */
+  
+  -webkit-touch-callout: none;
+}
+
+/*
+ * Just a quick hamburger
+ */
+#menuToggle span
+{
+  display: block;
+  width: 33px;
+  height: 3px;
+  margin-bottom: 6px;
+  position: relative;
+  
+  background: #000;
+  border-radius: 7px;
+  
+  z-index: 1;
+  
+  transform-origin: 4px 0px;
+  
+  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+              background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+              opacity 0.55s ease;
+}
+
+#menuToggle span:first-child
+{
+  transform-origin: 0% 0%;
+}
+
+#menuToggle span:nth-last-child(2)
+{
+  transform-origin: 0% 100%;
+}
+
+/* 
+ * Transform all the slices of hamburger
+ * into a crossmark.
+ */
+#menuToggle input:checked ~ span
+{
+  opacity: 1;
+  transform: rotate(45deg) translate(-2px, -1px);
+  background: #232323;
+}
+
+/*
+ * But let's hide the middle one.
+ */
+#menuToggle input:checked ~ span:nth-last-child(3)
+{
+  opacity: 0;
+  transform: rotate(0deg) scale(0.2, 0.2);
+}
+
+/*
+ * Ohyeah and the last one should go the other direction
+ */
+#menuToggle input:checked ~ span:nth-last-child(2)
+{
+  transform: rotate(-45deg) translate(0, -1px);
+}
+
+/*
+ * Make this absolute positioned
+ * at the top left of the screen
+ */
+#menu
+{
+  position: absolute;
+  width: 300px;
+  margin: -100px 0 0 -50px;
+  padding: 50px;
+  padding-top: 125px;
+  
+  background: #ededed;
+  list-style-type: none;
+  -webkit-font-smoothing: antialiased;
+  /* to stop flickering of text in safari */
+  
+  transform-origin: 0% 0%;
+  transform: translate(-100%, 0);
+  
+  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+}
+
+#menu li
+{
+  padding: 10px 0;
+  font-size: 16px;
+}
+
+/*
+ * And let's slide it in from the left
+ */
+#menuToggle input:checked ~ ul
+{
+  transform: none;
+}
+
+/* Portrait and Landscape */
+@media only screen 
+  and (min-device-width: 300px) 
+  and (max-device-width: 736px) 
+  and (-webkit-min-device-pixel-ratio: 3) { 
+
+    .main-images {
+        width: 100%;
+    }
+    .main-images img {
+        width: 95%;
+    }
+
+    .video {
+        aspect-ratio: 16 / 9;
+        width: 95%;
+    }
+
+    header {
+        text-align: center;
+        margin-top: 52px;
+        margin-bottom: 24px;
+        padding: 0;
+    }
+
+    .img-header {
+        width: 95%;
+    }
+
+}
